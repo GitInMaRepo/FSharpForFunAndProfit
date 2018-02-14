@@ -21,3 +21,10 @@ type QuickSortFSharp() =
             let biggerElements =
                 this.DoQuickSortOn (List.filter (sortLargerPredicate) otherElements)
             List.concat [smallerElements; [firstElement]; biggerElements]
+
+    member this.QuickSort list =
+        match list with
+        | [] -> []
+        | first::rest ->
+            let smaller, larger = List.partition ((>=) first) rest
+            List.concat [this.QuickSort larger; [first]; this.QuickSort smaller]
