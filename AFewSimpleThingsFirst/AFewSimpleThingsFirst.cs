@@ -45,6 +45,15 @@ namespace AFewSimpleThingsFirst
         }
 
         [TestMethod]
+        public void AQuickSortOnARangeOfValues_CSharp_ViaExtensionMethod()
+        {
+                (new List<int> { 1, 7, 3, 15, 54, 12, 2, 5, 9 })
+                .DoQuickSort()
+                .Should()
+                .BeEquivalentTo(new List<int> { 1, 2, 3, 5, 7, 9, 12, 15, 54 });
+        }
+
+        [TestMethod]
         public void AQuickSortOnARangeOfValues_FSharp()
         {
             var targetFSharp = new QuickSortFSharp();

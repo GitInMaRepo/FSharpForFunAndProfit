@@ -33,28 +33,47 @@ namespace AFewSimpleThingsFirst
             return result;
         }
 
-        public static IEnumerable<int> DoQuickSortOnAlternative(this IEnumerable<int> source)
+        public List<int> DoQuickSortOnAlternative(List<int> list)
         {
-            if(!source.Any())
+            if (!list.Any())
             {
                 return new List<int>();
             }
+            int elementZero = list.First();
+            var otherElements = list.Skip(1);
+            var smallerElements = otherElements
+                                .Where(f => f < elementZero)
+                                .ToList();
+            var largerElements = otherElements
+                                .Where(f => f >= elementZero)
+                                .ToList();
+            List<int> result = new List<int>();
+            result.AddRange(DoQuickSortOn(smallerElements));
+            result.Add(elementZero);
+            result.AddRange(DoQuickSortOn(largerElements));
+            return result;
+        }
+    }
 
+    public static class EnumerableExtensions
+    {
+        public static IEnumerable<int> DoQuickSort(this IEnumerable<int> source)
+        {
+            if (!source.Any())
+            {
+                return new List<int>();
+            }
             int elementZero = source.First();
             var otherElements = source.Skip(1);
-
-            var smallerElements = otherElements.Skip(1)
-                                        .Where(f => f < elementZero)
-                                        .DoQuickSortOnAlternative();
-            var biggerElements = otherElements.Skip(1)
-                                        .Where(f => f >= elementZero)
-                                        .DoQuickSortOnAlternative();
-
-            List<int> result = new List<int>();
-            result.AddRange(DoQuickSortOnAlternative(smallerElements));
-            result.Add(elementZero);
-            result.AddRange(DoQuickSortOnAlternative(biggerElements));
-            return result;
+            var smallerElements = otherElements
+                                .Where(f => f < elementZero)
+                                .DoQuickSort();
+            var largerElements = otherElements
+                                .Where(f => f >= elementZero)
+                                .DoQuickSort();
+            return smallerElements
+                .Concat(new List<int>() { elementZero })
+                .Concat(largerElements);
         }
     }
 }
