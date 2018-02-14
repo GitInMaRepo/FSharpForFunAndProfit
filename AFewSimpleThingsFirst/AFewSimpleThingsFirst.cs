@@ -8,17 +8,13 @@ namespace AFewSimpleThingsFirst
     public class AFewSimpleThingsFirst
     {
         [TestMethod]
-        public void TheSumOfAllSquaresFrom1To4InCSharp()
+        public void TheSumOfAllSquaresFrom1To4()
         {
-            var target = new SquareCalculatorCSharp();
-            target.SquaresFromOneTo(4).Should().Be(30);    
-        }
+            var targetCSharp = new SquareCalculatorCSharp();
+            var targetFSharp = new SquareCalculatorFSharp();
 
-        [TestMethod]
-        public void TheSumOfAllSquaresFrom1To4InFSharp()
-        {
-            var target = new SquareCalculatorFSharp();
-            target.SquaresFromOneTo<int, int>(4).Should().Be(30);
+            targetCSharp.SquaresFromOneTo(4).Should().Be(30);
+            targetFSharp.SquaresFromOneTo(4).Should().Be(30);
         }
     }
 }

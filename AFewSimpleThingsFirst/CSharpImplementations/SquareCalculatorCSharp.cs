@@ -6,7 +6,17 @@ namespace AFewSimpleThingsFirst
     {
         public int SquaresFromOneTo(int upper)
         {
-            throw new NotImplementedException("No C# implementation yet");
+            var result = 0;
+            for(int x = 1; x <= upper; x++)
+            {
+                result += Square(x);
+            }
+            return result;
+        }
+
+        private static int Square(int x)
+        {
+            return x * x;
         }
     }
 }
