@@ -2,7 +2,9 @@
 using FSharpImplementations;
 using Microsoft.FSharp.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace AFewSimpleThingsFirst
@@ -84,6 +86,22 @@ namespace AFewSimpleThingsFirst
                 .ToList()
                 .Should()
                 .BeEquivalentTo(new List<int> { 1, 2, 3, 5, 7, 9, 12, 15, 54 });
+        }
+
+        [TestMethod]
+        public void AnHtmlDownloaderIn_CSharp()
+        {
+            var targetCSharp = new HtmlDownloaderCSharp();
+            string result = targetCSharp.DownloadHtml("http://localhost");
+            result.Should().NotBe(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void AnHtmlDownloaderIn_FSharp()
+        {
+            var targetCSharp = new HtmlDownloaderCSharp();
+            string result = targetCSharp.DownloadHtml("http://localhost");
+            result.Should().NotBe(string.Empty, result);
         }
     }
 }

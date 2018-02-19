@@ -4,5 +4,8 @@
 #load "SquareCalculatorFSharp.fs"
 open FSharpImplementations
 
+
 // Skriptcode für die Bibliothek hier definieren
+
+
 
