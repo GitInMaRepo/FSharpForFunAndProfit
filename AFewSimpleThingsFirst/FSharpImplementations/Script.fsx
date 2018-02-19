@@ -6,6 +6,19 @@ open FSharpImplementations
 
 
 // Skriptcode für die Bibliothek hier definieren
+let parseFirst condition = 
+    match condition with 
+    | true -> "Hello "
+    | false -> "Goodbye "
 
+let parseSecond condition = 
+    match condition with
+    | true -> "Country"
+    | false -> "World"
 
+let parseThird condition =
+    match condition with 
+    |true -> "!"
+    |false -> "?"
 
+parseFirst true + parseSecond true + parseThird true

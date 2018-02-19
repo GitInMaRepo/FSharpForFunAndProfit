@@ -13,6 +13,31 @@ namespace AFewSimpleThingsFirst
     public class AFewSimpleThingsFirst
     {
         [TestMethod]
+        public void ExpressionsNotMethods_CSharp()
+        {
+            Tuple<bool, bool, bool> conditions 
+                = new Tuple<bool, bool, bool>(true, false, true);
+            var result = Calculate(conditions);
+            result.Should().Be("Hello World!");
+        }
+
+        [TestMethod]
+        public void ExpressionsNotMethods2_CSharp()
+        {
+            Tuple<bool, bool, bool> conditions
+                = new Tuple<bool, bool, bool>(false, true, false);
+            var result = Calculate(conditions);
+            result.Should().Be("Goodbye Country?");
+        }
+
+        private string Calculate(Tuple<bool, bool, bool> conditions)
+        {
+            return (conditions.Item1 ? "Hello " : "Goodbye ") +
+            (conditions.Item2 ? "Country" : "World") +
+            (conditions.Item3 ? "!" : "?");
+        }
+
+        [TestMethod]
         public void TheSumOfAllSquaresFrom1To4In_CSharp()
         {
             var targetCSharp = new SquareCalculatorCSharp();
