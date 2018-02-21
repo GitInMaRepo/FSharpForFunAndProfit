@@ -1,40 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ExerciseOne
 {
     internal class QuickSortCSharp
     {
-        internal List<int> DoQuickSortOn(List<int> list)
+        internal IEnumerable<int> DoQuickSortOn(IEnumerable<int> list)
         {
-            if(list.Count == 0)
+            if(!list.Any())
             {
                 return new List<int>();
             }
 
-            var first = list[0];
+            var first = list.First();
+            var rest = list.Skip(1);
 
-            List<int> smallerValues = new List<int>();
-            List<int> largerValues = new List<int>();
+            var smallerValues = rest
+                                    .Where(f => f < first)
+                                    .ToList();
+            var largerValues = rest
+                                    .Where(f => f >= first)
+                                    .ToList();
 
-            for (int x = 1; x < list.Count; x++)
+            return DoQuickSortOn(smallerValues)
+                .Concat(new List<int> {first})
+                .Concat(DoQuickSortOn(largerValues));
+        }
+    }
+
+    public static class QuickSortExtensions
+    {
+        public static IEnumerable<int> QuickSort(this IEnumerable<int> list)
+        {
+            if (!list.Any())
             {
-                if(list[x] < first)
-                {
-                    smallerValues.Add(list[x]);
-                }
-                else
-                {
-                    largerValues.Add(list[x]);
-                }
+                return new List<int>();
             }
 
-            List<int> result = new List<int>();
-            result.AddRange(DoQuickSortOn(smallerValues));
-            result.Add(first);
-            result.AddRange(DoQuickSortOn(largerValues));
+            var first = list.First();
+            var rest = list.Skip(1);
 
-            return result;
+            var smallerValues = rest
+                                    .Where(f => f < first)
+                                    .QuickSort();
+            var largerValues = rest
+                                    .Where(f => f >= first)
+                                    .QuickSort();
+
+            return smallerValues    
+                            .Concat(new List<int> { first })
+                            .Concat(largerValues);
+
         }
     }
 }
