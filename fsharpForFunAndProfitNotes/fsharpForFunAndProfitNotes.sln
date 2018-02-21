@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.21
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fsharpForFunAndProfitNotes", "fsharpForFunAndProfitNotes\fsharpForFunAndProfitNotes.fsproj", "{497BFD7B-3C54-43C6-92E4-47540937E9EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseOne", "ExerciseOne\ExerciseOne.csproj", "{2310DB6C-74F3-48FF-9CC8-7F60187BA295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{497BFD7B-3C54-43C6-92E4-47540937E9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{497BFD7B-3C54-43C6-92E4-47540937E9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{497BFD7B-3C54-43C6-92E4-47540937E9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2310DB6C-74F3-48FF-9CC8-7F60187BA295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2310DB6C-74F3-48FF-9CC8-7F60187BA295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2310DB6C-74F3-48FF-9CC8-7F60187BA295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2310DB6C-74F3-48FF-9CC8-7F60187BA295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
