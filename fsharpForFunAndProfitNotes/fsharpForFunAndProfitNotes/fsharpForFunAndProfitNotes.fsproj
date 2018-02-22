@@ -52,8 +52,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="QuickSortFSharp.fs" />
-    <None Include="Script.fsx" />
+    <None Include="Introduction.fsx" />
     <Content Include="packages.config" />
+    <None Include="TypesAndInference.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
