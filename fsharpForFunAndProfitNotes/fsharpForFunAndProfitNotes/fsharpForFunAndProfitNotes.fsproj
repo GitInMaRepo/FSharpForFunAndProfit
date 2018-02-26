@@ -55,6 +55,9 @@
     <None Include="session1 introduction.fsx" />
     <Content Include="packages.config" />
     <None Include="session3 types.fsx" />
+    <None Include="probabilities.fsx" />
+    <Compile Include="CalculatorFSharp.fs" />
+    <None Include="playground.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

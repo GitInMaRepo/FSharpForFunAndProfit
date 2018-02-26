@@ -5,24 +5,44 @@ namespace ExerciseThree
 {
     internal class CalculatorCSharp
     {
-        public CalculatorCSharp()
+        internal int DoProductsOverallOnOneTo(int input)
         {
+            var result = 1;
+            for(int x = 1; x <= input; x++)
+            {
+                result *= x;
+            }
+            return result;
         }
 
-        internal int DoProductsOverallOn(List<int> list)
+        internal int DoSumsOfOddsOnOneTo(int input)
         {
-            throw new NotImplementedException();
-        }
-        
-        internal int DoProductsOfOddsOn(List<int> list)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int DoAlternatingSumOn(List<int> list)
-        {
-            throw new NotImplementedException();
+            var result = 0;
+            for (int x = 1; x <= input; x++)
+            {
+                if (x % 2 != 0)
+                {
+                    result += x;
+                };
+            }
+            return result;
         }
 
+        internal int DoAlternatingSumOnOneTo(int input)
+        {
+            var result = 0;
+            for (int x = 1; x <= input; x++)
+            {
+                if (x % 2 == 0)
+                {
+                    result += x;
+                }
+                else
+                {
+                    result -= x;
+                };
+            }
+            return result;
+        }
     }
 }
