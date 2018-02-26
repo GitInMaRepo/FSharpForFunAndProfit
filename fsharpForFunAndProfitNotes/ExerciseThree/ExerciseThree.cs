@@ -1,5 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using FluentAssertions;
+using fsharpForFunAndProfitNotes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ExerciseThree
 {
@@ -7,36 +8,68 @@ namespace ExerciseThree
     public class ExerciseThree
     {
         [TestMethod]
-        public void BuildProductOverList()
+        public void BuildProductOverRangeCSharp()
         {
-
             var targetCSharp = new CalculatorCSharp();
             targetCSharp
-                .DoProductsOverallOn(new List<int> { 1, 7, 3, 2, 5, 9 })
+                .DoProductsOverallOnOneTo(12)
                 .Should()
-                .Be(1990);
+                .Be(479001600);
         }
 
         [TestMethod]
-        public void BuildProductOfOddNumbersInList()
+        public void BuildProductOverRangeFSharp()
         {
-
-            var targetCSharp = new CalculatorCSharp();
-            targetCSharp
-                .DoProductsOfOddsOn(new List<int> { 1, 3, 2, 4, 9 })
+            var targetFSharp = new CalculatorFSharp();
+            targetFSharp
+                .DoProductsOverallOnOneTo(12)
                 .Should()
-                .Be(27);
+                .Be(479001600);
         }
 
         [TestMethod]
-        public void BuildAlternatingSumInList()
+        public void BuildProductOfOddNumbersInListCSharp()
         {
 
             var targetCSharp = new CalculatorCSharp();
             targetCSharp
-                .DoAlternatingSumOn(new List<int> { 1, 7, 3, 2, 5, 9 })
+                .DoSumsOfOddsOnOneTo(12)
                 .Should()
-                .Be(11);
+                .Be(36);
+        }
+
+        [TestMethod]
+        public void BuildProductOfOddNumbersInListFSharp()
+        {
+
+            var targetFSharp = new CalculatorCSharp();
+            targetFSharp
+                .DoSumsOfOddsOnOneTo(12)
+                .Should()
+                .Be(36);
+        }
+
+        [TestMethod]
+        public void BuildAlternatingSumInListCSharp()
+        {
+
+            var targetCSharp = new CalculatorCSharp();
+            targetCSharp
+                .DoAlternatingSumOnOneTo(12)
+                .Should()
+                .Be(6);
+        }
+
+        [TestMethod]
+        public void BuildAlternatingSumInListFSharp()
+        {
+
+            var targetFSharp = new CalculatorFSharp();
+            targetFSharp
+                .DoAlternatingSumOnOneTo(12)
+                .Item2
+                .Should()
+                .Be(6);
         }
     }
 }
